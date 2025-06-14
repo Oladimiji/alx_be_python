@@ -1,10 +1,11 @@
-# future_age_calculator.py
+purchase_amount = float(input("1000"))
 
-# Prompt the user for their current age
-current_age = int(input("How old are you? "))
+if purchase_amount >= 1000:
+discount = 0.1
+elif purchase_amount >= 500
+discount = 0.05
+else
+discount = 0
 
-# Calculate the age in 2050
-age_in_2050 = current_age + 27
-
-# Print the result
-print(f"In 2050, you will be {age_in_2050} years old.")
+final_price = purchase_amount * (1 - discount)
+print("Final price after discount: $" + str(final_price))

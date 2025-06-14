@@ -1,28 +1,9 @@
-# match_case_calculator.py
+my_car = Car("Toyota", "Camry", 2020)
+print(my_car.get_descriptive_name())  # Output: 2020 Toyota Camry
 
-# Prompt the user for two numbers
-num1 = float(input("Enter the first number: "))
-num2 = float(input("Enter the second number: "))
+my_car.read_odometer()  # Output: This car has 0 miles on it.
+my_car.update_odometer(100)  # Update odometer reading
+my_car.read_odometer()  # Output: This car has 100 miles on it.
 
-# Prompt the user to select an operation
-operation = input("Choose the operation (+, -, *, /): ").strip()
-
-# Perform the calculation using match-case (Python 3.10+ required)
-match operation:
-    case "+":
-        result = num1 + num2
-        print(f"The result is {result}")
-    case "-":
-        result = num1 - num2
-        print(f"The result is {result}")
-    case "*":
-        result = num1 * num2
-        print(f"The result is {result}")
-    case "/":
-        if num2 == 0:
-            print("Error: Division by zero is not allowed.")
-        else:
-            result = num1 / num2
-            print(f"The result is {result}")
-    case _:
-        print("Invalid operation selected.")
+my_car.increment_odometer(50)  # Increment odometer reading
+my_car.read_odometer()  # Output: This car has 150 miles on it.
