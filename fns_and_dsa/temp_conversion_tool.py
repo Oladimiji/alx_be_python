@@ -1,45 +1,65 @@
-# Global Conversion Factors (Ensure these names and values are EXACTLY as required by the checker)
-# These are standard, but a strict checker might have different expectations.
+# Requirement 1: Define Global Conversion Factors
+# These factors are accessible throughout the script.
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
-# Conversion Functions (Ensure these names and parameter structures are EXACTLY as required)
+# Requirement 2: Implement Conversion Functions
+
 def convert_to_celsius(fahrenheit):
     """
-    Converts temperature from Fahrenheit to Celsius.
+    Converts a temperature from Fahrenheit to Celsius using the global factor.
+
+    Args:
+        fahrenheit (float): The temperature in Fahrenheit.
+
+    Returns:
+        float: The temperature converted to Celsius.
     """
+    # Use the global FAHRENHEIT_TO_CELSIUS_FACTOR
     return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
 def convert_to_fahrenheit(celsius):
     """
-    Converts temperature from Celsius to Fahrenheit.
+    Converts a temperature from Celsius to Fahrenheit using the global factor.
+
+    Args:
+        celsius (float): The temperature in Celsius.
+
+    Returns:
+        float: The temperature converted to Fahrenheit.
     """
+    # Use the global CELSIUS_TO_FAHRENHEIT_FACTOR
     return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
 
+# Requirement 3: User Interaction and Error Handling
 def main():
-    # User interaction prompts (These strings are CRITICAL to match the checker's expectations)
-    # If the checker expects different prompts, change them here.
-    temp_input = input("Enter temperature: ") # Example: checker might want "Enter the temperature:"
-    unit_input = input("Enter unit (C for Celsius, F for Fahrenheit): ").strip().upper() # Example: checker might want "Enter unit (C/F):"
+    """
+    Handles user interaction, calls conversion functions, and displays results.
+    Includes input validation for temperature and unit.
+    """
+    # Prompt for temperature input
+    temp_input = input("Enter the temperature value: ")
 
     try:
         temperature = float(temp_input)
     except ValueError:
-        # Error message for ValueError (This string is CRITICAL to match the checker's expectations)
-        # Example: checker might want "Invalid temperature input."
+        # Exact error message as required
         print("Invalid temperature. Please enter a numeric value.")
-        return # Exit the function if input is invalid
+        return # Exit the function if input is not a number
+
+    # Prompt for unit input
+    unit_input = input("Enter the unit (C for Celsius, F for Fahrenheit): ").strip().upper()
 
     if unit_input == 'C':
-        result = convert_to_fahrenheit(temperature)
-        # Ensure output format matches checker's expectation
-        print(f"{temperature}°C is {result:.2f}°F")
+        # Convert Celsius to Fahrenheit
+        converted_temp = convert_to_fahrenheit(temperature)
+        print(f"{temperature}°C is {converted_temp:.2f}°F")
     elif unit_input == 'F':
-        result = convert_to_celsius(temperature)
-        # Ensure output format matches checker's expectation
-        print(f"{temperature}°F is {result:.2f}°C")
+        # Convert Fahrenheit to Celsius
+        converted_temp = convert_to_celsius(temperature)
+        print(f"{temperature}°F is {converted_temp:.2f}°C")
     else:
-        # Error message for invalid unit (This string might also be checked)
+        # Handle invalid unit input
         print("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
 
 if _name_ == "_main_":
