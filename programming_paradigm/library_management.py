@@ -2,7 +2,7 @@ class Book:
     """
     Represents a book with a title, author, and availability status.
     """
-    def _init_(self, title, author):
+    def __init__(self, title, author):
         """
         Initializes a new Book instance.
 
@@ -54,7 +54,7 @@ class Library:
     """
     Manages a collection of Book instances.
     """
-    def _init_(self):
+    def __init__(self):
         """
         Initializes a new Library instance with an empty list of books.
         """
