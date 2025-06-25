@@ -1,7 +1,7 @@
 # book_class.py
 
 class Book:
-    def _init_(self, title, author, year):
+    def __init__(self, title, author, year):
         """
         Initializes a Book instance with title, author, and year.
         """
@@ -10,25 +10,25 @@ class Book:
         self.year = year
         print(f"Book '{self.title}' created.")
 
-    def _del_(self):
+    def __del__(self):
         """
         Destructor: Prints a message upon object deletion.
         """
         print(f"Deleting {self.title}")
 
-    def _str_(self):
+    def __str__(self):
         """
         String Representation: Returns a user-friendly string for the book.
         """
         return f"{self.title} by {self.author}, published in {self.year}"
 
-    def _repr_(self):
+    def __repr__(self):
         """
         Official Representation: Returns a string that can recreate the Book instance.
         """
         return f"Book('{self.title}', '{self.author}', {self.year})"
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     # Example Usage:
     book1 = Book("The Great Gatsby", "F. Scott Fitzgerald", 1925)
     book2 = Book("1984", "George Orwell", 1949)
